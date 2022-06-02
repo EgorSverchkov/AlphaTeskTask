@@ -1,11 +1,15 @@
 package ru.alpha.test.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import ru.alpha.test.model.dto.Gif;
+import ru.alpha.test.model.dto.ResponseGif;
 
 import java.util.Map;
 
 @Component
+@Slf4j
 public class GifServiceImpl implements GifService {
     private final CurrencyService currencyService;
 
@@ -17,11 +21,11 @@ public class GifServiceImpl implements GifService {
     }
 
     @Override
-    public Map getGif() {
+    public String getGif() {
         String tag = currencyService.giveInfo();
 
-        ResponseEntity<Map> gif = gifApiService.getGif(tag);
+        ResponseEntity<ResponseGif> gif = gifApiService.getGif(tag);
 
-        return gif.getBody();
+        return gif.getBody().getData().getEmbed_url();
     }
 }

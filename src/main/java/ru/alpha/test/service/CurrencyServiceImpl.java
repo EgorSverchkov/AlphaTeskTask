@@ -1,5 +1,6 @@
 package ru.alpha.test.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import ru.alpha.test.model.dto.ResponseCurrencyApi;
 
@@ -7,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Component
+@Slf4j
 public class CurrencyServiceImpl implements CurrencyService {
 
     private final CurrencyApiService currencyApiService;
