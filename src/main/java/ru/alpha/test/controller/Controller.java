@@ -1,6 +1,11 @@
 package ru.alpha.test.controller;
 
+
+import org.apache.catalina.connector.Response;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.alpha.test.exception.BadRequestException;
 import ru.alpha.test.service.GifService;
 
 @org.springframework.stereotype.Controller
@@ -13,10 +18,15 @@ public class Controller {
     }
 
 
-    @GetMapping("/api/v1/gif")
-    public String indexPage() {
-        String gif = gifService.getGif();
-        return "redirect:" + gif;
+    @GetMapping("/gif")
+    @ExceptionHandler(BadRequestException.class)
+    public String indexPage(@RequestParam String currency) {
+        try {
+            String gif = gifService.getGif(currency);
+            return "redirect:" + gif;
+        } catch (BadRequestException e) {
+            return "error.html";
+        }
     }
 
 }

@@ -4,41 +4,41 @@ import lombok.Data;
 
 @Data
 public class Gif {
- private String type;
+    private String type;
 
- private String id;
+    private String id;
 
- private String slug;
+    private String slug;
 
- private String url;
+    private String url;
 
- private String bitly_url;
+    private String bitly_url;
 
- private String embed_url;
+    private String embed_url;
 
- private String username;
+    private String username;
 
- private String source;
+    private String source;
 
- private String rating;
+    private String rating;
 
- private String content_url;
+    private String content_url;
 
- private Object user;
+    private Object user;
 
- private String source_tld;
+    private String source_tld;
 
- private String source_post_url;
+    private String source_post_url;
 
- private String update_datetime;
+    private String update_datetime;
 
- private String create_datetime;
+    private String create_datetime;
 
- private String import_datetime;
+    private String import_datetime;
 
- private String trending_datetime;
+    private String trending_datetime;
 
- private Object images;
+    private Object images;
 
- private String title;
+    private String title;
 }
