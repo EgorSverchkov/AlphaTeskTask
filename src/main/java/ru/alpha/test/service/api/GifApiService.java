@@ -1,4 +1,4 @@
-package ru.alpha.test.service;
+package ru.alpha.test.service.api;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.Map;
 @FeignClient(name = "${gif-service.name}", url = "${gif-service.base.url}")
 public interface GifApiService {
 
-    @GetMapping("/random?api_key=f0o1Mb2RD9YBtOzWtt7ZYi4Fvk9t95oQ&tag={tag}")
-    ResponseEntity<ResponseGif> getGif(@PathVariable("tag") String tag);
+    @GetMapping("/random?api_key={api_key}&tag={tag}")
+    ResponseEntity<ResponseGif> getGif(@PathVariable("tag") String tag, @PathVariable("api_key") String api_key);
 
 }
