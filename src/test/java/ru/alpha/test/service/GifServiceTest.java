@@ -50,8 +50,6 @@ public class GifServiceTest {
     void getGifUrlTest() {
         when(nowRateService.getNowRate(anyString())).thenReturn(NOW_RATE);
         when(yesterdayRateService.getYesterdayRate(anyString())).thenReturn(YEST_RATE);
-        String tag = tagService.getTag(nowRateService.getNowRate(CURRENCY)
-                , yesterdayRateService.getYesterdayRate(CURRENCY));
         Gif gif = new Gif();
         gif.setEmbed_url(SOME_URL);
         ResponseGif responseGif = new ResponseGif();
@@ -59,5 +57,4 @@ public class GifServiceTest {
         when(gifApiService.getGif(anyString(), anyString())).thenReturn(ResponseEntity.ok(responseGif));
         Assertions.assertEquals(gifService.getGifUrl(CURRENCY), SOME_URL);
     }
-
 }
