@@ -24,7 +24,9 @@ public class GifController {
     }
 
 
-    @GetMapping("/api/v1/gif")
+    private final String GET_GIF = "/api/v1/gif";
+
+    @GetMapping(GET_GIF)
     public ResponseEntity<String> getGif(@RequestParam String currency) {
         try {
             String gif = gifService.getGifUrl(currency);
